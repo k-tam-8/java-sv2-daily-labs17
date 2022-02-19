@@ -1,0 +1,1 @@
+CREATE TABLE bands (id BIGINT AUTO_INCREMENT, band_name VARCHAR(255), founded int(4), origin VARCHAR(100), CONSTRAINT pk_bands PRIMARY KEY (id));

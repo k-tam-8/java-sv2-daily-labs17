@@ -1,0 +1,1 @@
+CREATE TABLE labels (id BIGINT AUTO_INCREMENT, label VARCHAR(100), founded int, CONSTRAINT pk_labels PRIMARY KEY (id));
