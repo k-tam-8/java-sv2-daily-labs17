@@ -24,15 +24,20 @@ public class Main {
         }*/
 
         Flyway flyway = Flyway.configure().dataSource(dataSource).load();
-        //flyway.clean();
+        flyway.clean();
         //flyway.baseline();
         flyway.migrate();
 
         ActorRepository ar = new ActorRepository(dataSource);
         MovieRepository mr = new MovieRepository(dataSource);
         ActorsMoviesRepository amr = new ActorsMoviesRepository(dataSource);
+        RatingRepository rr = new RatingRepository(dataSource);
+        MovieRatingService mrs = new MovieRatingService(mr,rr);
         ActorsMoviesService ams = new ActorsMoviesService(ar, mr, amr);
-        //ams.insertMovieActor("Titanic", LocalDate.of(1997,11,13), List.of("Leonardo DiCaprio", "Kate Winslet"));
+
+        ams.insertMovieActor("Titanic", LocalDate.of(1997,11,13), List.of("Leonardo DiCaprio", "Kate Winslet"));
         ams.insertMovieActor("Jaws", LocalDate.of(1975,4,28), List.of("Roy Schneider", "Kate Winslet"));
+        mrs.addRating("Titanic", 4,1,3);
+        mrs.addRating("Jaws", 5,4,2);
     }
 }

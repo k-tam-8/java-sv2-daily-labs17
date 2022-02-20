@@ -13,6 +13,10 @@ public class Movie {
         this.releaseDate = releaseDate;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getTitle() {
         return title;
     }

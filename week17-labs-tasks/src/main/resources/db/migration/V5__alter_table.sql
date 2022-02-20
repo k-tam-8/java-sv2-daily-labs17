@@ -1,0 +1,1 @@
+alter table movies add average FLOAT;
